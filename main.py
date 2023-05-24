@@ -18,7 +18,9 @@ newHeight=int(height*rate/100)
 img2=img2.resize((newWidth,newHeight))
 
 #paste img2 to img1
-img1.paste(img2,(357,762))
+positionInput=map(int,input("please input the position of the logo: ").split(","))
+position=tuple(positionInput)
+img1.paste(img2,position)
 
 img1.show()
 
