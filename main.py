@@ -13,7 +13,7 @@ def choosePosition(windowName,img):
             cv.imshow(windowName,temp_img)
     
     temp_img=img.copy()
-    cv.namedWindow(windowName)
+    cv.namedWindow(windowName,cv.WINDOW_NORMAL)
     cv.imshow(windowName,temp_img)
     cv.setMouseCallback(windowName,onMouse)
     key=cv.waitKey(0)
