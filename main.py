@@ -46,7 +46,7 @@ while(index):
     newHeight=int(height*rate/100)
     logoPic=logoPic.resize((newWidth,newHeight))
 
-    choice=input("which method do you prefer?\n1.input the logo position   2.pick a position by mouse\n")
+    choice=input("which method do you prefer?\n1.input the logo position   2.pick a position by mouse   3.central point of background pic\n")
     if choice=='1':
     #input the logo position
         positionInput=map(int,input("please input the position of the logo: ").split(","))
@@ -55,6 +55,9 @@ while(index):
     #pick the logo position by mouse
         windowName="Position Picker"
         position=choosePosition(windowName,backgroundPic)[0]
+    elif choice=='3':
+        centralPoint=[backgroundPic.size[0]/2,backgroundPic.size[1]/2]#central point of the background pic
+        position=tuple((int(centralPoint[0]-newWidth/2),int(centralPoint[1]-newHeight/2)))
     else:
         print("wrong option, try again")
         continue
@@ -62,6 +65,7 @@ while(index):
     #paste logo to background pic
     backgroundPic.paste(logoPic,position)
 
+    #show the result pic
     backgroundPic.show()
 
     #save result pic to file
