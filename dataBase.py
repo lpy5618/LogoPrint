@@ -3,13 +3,17 @@ from random import sample
 
 def getPathFromDB(args,filenum):
     localDB=MongoClient("mongodb://localhost:27017")
+    paths=[]
     # print(localDB.list_database_names())
     db=localDB.logoPrint
     bottlesCol=db.bottles
-    command=args.split(" ") # color supplier type
-    cmd={"color":command[0],"supplier":command[1],"type":command[2]}
-    paths=[]
-    pathCursor=bottlesCol.find(cmd,{"_id":0,"path":1})
+    bagsCol=db.bags
+    command=args.split(" ") # item color supplier type
+    cmd={"color":command[1],"supplier":command[2],"type":command[3]}
+    if command[0]=="bottles":
+        pathCursor=bottlesCol.find(cmd,{"_id":0,"path":1})
+    elif command[0]=="bags":
+        pathCursor=bagsCol.find(cmd,{"_id":0,"path":1})
     for i in pathCursor:
         paths.append(i["path"])
     if len(paths)<filenum:

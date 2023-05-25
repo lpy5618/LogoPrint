@@ -9,7 +9,7 @@ while(index):
     #background image folder
     # print("please choose the background image folder")
     # backgroundPicFolder=easygui.diropenbox(msg="please choose the background image folder")
-    args=input("please input your conditions: color supplier type: ")
+    args=input("please input your conditions: item color supplier type: ")
     fileNum=int(input("how many pics do you want to get?"))
     print(fileNum)
     # print(backgroundPicFolder)
