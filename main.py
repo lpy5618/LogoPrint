@@ -29,6 +29,9 @@ while(index):
     newHeight=int(height*rate/100)
     logoPic=logoPic.resize((newWidth,newHeight))
 
+    #logo position
+    inputPosition=input("please choose the position of the logo: ")
+    
     #result saving folder
     print("please choose the result saving folder")
     saveFolder=easygui.diropenbox(msg="please choose the result saving folder")
@@ -37,8 +40,20 @@ while(index):
         #background image
         backgroundPicPath=backgroundPicPaths.pop()
         backgroundPic=Image.open(backgroundPicPath)
-        centralPoint=[backgroundPic.size[0]/2,backgroundPic.size[1]/2]#central point of the background pic
-        position=tuple((int(centralPoint[0]-newWidth/2),int(centralPoint[1]-newHeight/2)))
+        #central position
+        if inputPosition=="central":
+            centralPoint=[backgroundPic.size[0]/2,backgroundPic.size[1]/2]#central point of the background pic
+            position=tuple((int(centralPoint[0]-newWidth/2),int(centralPoint[1]-newHeight/2)))
+        elif inputPosition=="left":
+            position=tuple((0,int(backgroundPic.size[1]/2-newHeight/2)))
+        elif inputPosition=="top":
+            position=tuple((int(backgroundPic.size[0]/2-newWidth/2),0))
+        elif inputPosition=="right":
+            position=tuple((int(backgroundPic.size[0]-newWidth),int(backgroundPic.size[1]/2-newHeight/2)))
+        elif inputPosition=="bottom":
+            position=tuple((int(backgroundPic.size[0]/2-newWidth/2),backgroundPic.size[1]-newHeight))
+
+
 
         #paste logo to background pic
         backgroundPic.paste(logoPic,position)
