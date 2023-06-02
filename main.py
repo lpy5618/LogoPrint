@@ -31,13 +31,13 @@ while(index):
     logoPic=logoPic.resize((newWidth,newHeight))
 
     #logo position
-    # inputPosition=input("please choose the position of the logo: ")
+    inputPosition=input("please choose the position of the logo: ")
     
     #result saving folder
     print("please choose the result saving folder")
     saveFolder=easygui.diropenbox(msg="please choose the result saving folder")
 
-    positionBox=findPosByAI(backgroundPicPaths)
+    positionBox=findPosByAI(inputPosition,newWidth,newHeight,backgroundPicPaths)
     for i in range(len(backgroundPicPaths)):
         #background image
         backgroundPicPath=backgroundPicPaths[i]

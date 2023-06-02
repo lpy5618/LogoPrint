@@ -221,7 +221,7 @@ class FRCNN(object):
             del draw
 
         # return image
-        return top_boxes
+        return predicted_class,top_boxes
 
 
     def get_FPS(self, image, test_interval):
