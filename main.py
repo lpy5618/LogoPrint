@@ -1,5 +1,6 @@
 from PIL import Image
 import easygui
+import os
 from randomPick import randomPickPics
 from dataBase import getPathFromDB
 from pickPositionByAI import findPosByAI
@@ -64,7 +65,8 @@ while(index):
 
     #save result pic to file
     
-        savePath=saveFolder+"\\"+backgroundPicPath.split("/").pop(-1)
+        # savePath=saveFolder+"\\"+backgroundPicPath.split("\\").pop(-1)
+        savePath=os.path.join(saveFolder,os.path.split(backgroundPicPath)[1])
         if savePath:
             backgroundPic.save(savePath)
             print("result pic saved at "+savePath)
