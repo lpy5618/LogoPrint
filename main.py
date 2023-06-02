@@ -47,9 +47,10 @@ while(index):
         print(positionBox[i])
         try:
             for j in positionBox[i]:
-                top, left, bottom, right = j
-                position=tuple((int(left),int(top)))
-                backgroundPic.paste(logoPic,position)
+                # top, left, bottom, right = j
+                # position=tuple((int(left),int(top)))
+                if len(j):
+                    backgroundPic.paste(logoPic,j)
         except:
             pass
 
