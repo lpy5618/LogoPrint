@@ -12,14 +12,13 @@ def findPosByAI(inputPosition,logoWidth,logoHeight,inputImgPaths):
         
         try:
             classtype,pos=frcnn.detect_image(img, crop = crop, count = count)
-            print(pos)
-            print(classtype)
             tempPos=[]
             for j in pos:
                 if classtype=='dashedcircle':
                     top, left, bottom, right = j
-                    centralPoint=tuple(int(left+(right-left)/2),int(top+(bottom-top)/2))
-                    tempPos.append(centralPoint)
+                    centralPoint=tuple((int(left+(right-left)/2),int(top+(bottom-top)/2)))
+                    position=tuple((int(centralPoint[0]-logoWidth/2),int(centralPoint[1]-logoHeight/2)))
+                    tempPos.append(position)
                 elif classtype=='dashedbox':
                     top, left, bottom, right = j
                     if inputPosition=='central':
