@@ -191,11 +191,12 @@ class FRCNN(object):
         #---------------------------------------------------------#
         #   图像绘制
         #---------------------------------------------------------#
+        resBox=[]#results for finding position
         for i, c in list(enumerate(top_label)):
             predicted_class = self.class_names[int(c)]
             box             = top_boxes[i]
             score           = top_conf[i]
-
+            resBox.append([predicted_class,box])
             top, left, bottom, right = box
 
             top     = max(0, np.floor(top).astype('int32'))
@@ -221,7 +222,7 @@ class FRCNN(object):
             del draw
 
         # return image
-        return predicted_class,top_boxes
+        return resBox
 
 
     def get_FPS(self, image, test_interval):
