@@ -1,5 +1,5 @@
 scipy==1.4.1
-numpy
+numpy==1.19.2
 matplotlib==3.2.1
 opencv_python==4.2.0.34
 tensorflow_gpu==2.5.0
@@ -9,3 +9,4 @@ h5py
 protobuf==3.20.0
 easygui
 pymongo
+pandas
