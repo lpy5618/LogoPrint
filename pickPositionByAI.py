@@ -1,5 +1,6 @@
 from rcnn.frcnn import FRCNN
 from PIL import Image
+import math
 
 def findPosByAI(inputPosition,logoWidth,logoHeight,inputImgPaths):
     frcnn=FRCNN()
@@ -19,10 +20,18 @@ def findPosByAI(inputPosition,logoWidth,logoHeight,inputImgPaths):
                 print('pos:',pos)
                 if classtype=='dashedcircle':
                     top, left, bottom, right = pos
+                    posWidth = int(right - left)
+                    posHeight = int(bottom - top)
+                    if posWidth>posHeight:
+                        d=posHeight
+                    else:
+                        d=posWidth
+
+                    alpha=math.atan2(logoHeight,logoWidth)
+                    newWidth=int(d*math.cos(alpha))
+                    newHeight=int(d*math.sin(alpha))
                     centralPoint=tuple((int(left+(right-left)/2),int(top+(bottom-top)/2)))
-                    location=tuple((int(centralPoint[0]-logoWidth/2),int(centralPoint[1]-logoHeight/2)))
-                    newWidth=logoWidth
-                    newHeight=logoHeight
+                    location=tuple((int(centralPoint[0]-newWidth/2),int(centralPoint[1]-newHeight/2)))
                     temp=[]
                     temp.append(location)
                     temp.append(newWidth)
