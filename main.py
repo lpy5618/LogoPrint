@@ -25,10 +25,10 @@ while(index):
 
     #logo reshape
     width,height=logoPic.size
-    rate=int(input("please input the size of the logo: "))
-    newWidth=int(width*rate/100)
-    newHeight=int(height*rate/100)
-    logoPic=logoPic.resize((newWidth,newHeight))
+    # rate=int(input("please input the size of the logo: "))
+    # newWidth=int(width*rate/100)
+    # newHeight=int(height*rate/100)
+    # logoPic=logoPic.resize((newWidth,newHeight))
 
     #logo position
     inputPosition=input("please choose the position of the logo: ")
@@ -37,7 +37,7 @@ while(index):
     print("please choose the result saving folder")
     saveFolder=easygui.diropenbox(msg="please choose the result saving folder")
 
-    positionBox=findPosByAI(inputPosition,newWidth,newHeight,backgroundPicPaths)
+    positionBox=findPosByAI(inputPosition,width,height,backgroundPicPaths)
     for i in range(len(backgroundPicPaths)):
         #background image
         backgroundPicPath=backgroundPicPaths[i]
@@ -47,10 +47,10 @@ while(index):
         print(positionBox[i])
         try:
             for j in positionBox[i]:
-                # top, left, bottom, right = j
-                # position=tuple((int(left),int(top)))
                 if len(j):
-                    backgroundPic.paste(logoPic,j)
+                    location,newWidth,newHeight=j
+                    logoPic=logoPic.resize((newWidth,newHeight))
+                    backgroundPic.paste(logoPic,location)
         except:
             pass
 

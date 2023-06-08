@@ -13,14 +13,11 @@ def getPathFromDB():
     # command=args.split(" ") # item color supplier type
     # cmd={"color":command[1],"supplier":command[2],"type":command[3]}
     args = {}
-    productColor = input("please input product color:")
-    productCategory = input("please input product category:")
-    productPrintType = input("please input product print type:")
+    args['color'] = input("please input product color:")
+    args['category']= input("please input product category:")
+    args['printtype'] = input("please input product print type:")
     fileNum=int(input("how many pics do you want to get?"))
-    args['color'] = productColor
-    args['category'] = productCategory
-    args['printtype'] = productPrintType
-
+    
     query = {}
     if args['color'] != '':
         query['ColourPart1Des'] = re.compile(args['color'],re.IGNORECASE)
