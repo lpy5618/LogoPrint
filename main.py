@@ -1,7 +1,7 @@
 from PIL import Image
 import easygui
 import os
-from randomPick import randomPickPics
+# from randomPick import randomPickPics
 from dataBase import getPathFromDB
 from pickPositionByAI import findPosByAI
 
@@ -23,7 +23,7 @@ while(index):
     logoPicPath=easygui.fileopenbox(msg="please choose the logo")
     logoPic=Image.open(logoPicPath)
 
-    #logo reshape
+    #logo shape
     width,height=logoPic.size
     # rate=int(input("please input the size of the logo: "))
     # newWidth=int(width*rate/100)
@@ -48,6 +48,7 @@ while(index):
         try:
             for j in positionBox[i]:
                 if len(j):
+                    #paste logo to background pic, according to AI
                     location,newWidth,newHeight=j
                     logoPic=logoPic.resize((newWidth,newHeight))
                     backgroundPic.paste(logoPic,location)
