@@ -68,7 +68,7 @@ def show_custom_labels(model,bucket,photo, min_confidence):
 def main():
 
     bucket='custom-labels-console-ap-southeast-2-866d8ab204'
-    photo='clipImage/SA009_1.png'
+    photo='clipImage/STW002_1.png'
     model='arn:aws:rekognition:ap-southeast-2:686239894582:project/logoPrint/version/logoPrint.2023-06-15T17.29.07/1686814148965'
     min_confidence=50
 

@@ -3,7 +3,7 @@ import easygui
 import os
 # from randomPick import randomPickPics
 from dataBase import getPathFromDB
-from pickPositionByAI import findPosByAI,findPosByAWS
+from pickPositionByAI import findPosByAWS
 
 def main():
     index=1
