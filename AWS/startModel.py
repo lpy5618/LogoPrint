@@ -1,12 +1,9 @@
-#Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-#PDX-License-Identifier: MIT-0 (For details, see https://github.com/awsdocs/amazon-rekognition-custom-labels-developer-guide/blob/master/LICENSE-SAMPLECODE.)
-
 import boto3
 
 def start_model(project_arn, model_arn, version_name, min_inference_units):
 
-    client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIATDU2AHYM6DIAV4WF',
-    aws_secret_access_key='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')
+    client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIAZ7RYVZQ3NNQFXGC5',
+                        aws_secret_access_key='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')
 
     try:
         # Start the model
@@ -28,10 +25,10 @@ def start_model(project_arn, model_arn, version_name, min_inference_units):
     print('Done...')
     
 def main():
-    project_arn='arn:aws:rekognition:ap-southeast-2:213997600281:project/logoPrint/1686210245429'
-    model_arn='arn:aws:rekognition:ap-southeast-2:213997600281:project/logoPrint/version/logoPrint.2023-06-09T14.43.15/1686285796098'
+    project_arn='arn:aws:rekognition:ap-southeast-2:181647024244:project/logoPrint/1686716167375'
+    model_arn='arn:aws:rekognition:ap-southeast-2:181647024244:project/logoPrint/version/logoPrint.2023-06-14T16.31.18/1686724280558'
     min_inference_units=1 
-    version_name='logoPrint.2023-06-09T14.43.15'
+    version_name='logoPrint.2023-06-14T16.31.18'
     start_model(project_arn, model_arn, version_name, min_inference_units)
 
 if __name__ == "__main__":

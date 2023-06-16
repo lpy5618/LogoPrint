@@ -51,9 +51,9 @@ def display_image(bucket,photo,response):
     image.show()
 
 def show_custom_labels(model,bucket,photo, min_confidence):
-#     client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIATDU2AHYM6DIAV4WF',
-#                         aws_secret_access_key='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')
-    client=boto3.client('rekognition',region_name='ap-southeast-2')
+    # client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIATDU2AHYM6DIAV4WF',
+    #                     aws_secret_access_key='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')
+    client=boto3.client('rekognition')
 
     #Call DetectCustomLabels
     response = client.detect_custom_labels(Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
@@ -67,9 +67,9 @@ def show_custom_labels(model,bucket,photo, min_confidence):
 
 def main():
 
-    bucket='custom-labels-console-ap-southeast-2-68797a1a4a'
-    photo='clipImage/BDL006_1.png'
-    model='arn:aws:rekognition:ap-southeast-2:213997600281:project/logoPrint/version/logoPrint.2023-06-09T14.43.15/1686285796098'
+    bucket='custom-labels-console-ap-southeast-2-866d8ab204'
+    photo='clipImage/SA009_1.png'
+    model='arn:aws:rekognition:ap-southeast-2:686239894582:project/logoPrint/version/logoPrint.2023-06-15T17.29.07/1686814148965'
     min_confidence=50
 
     label_count=show_custom_labels(model,bucket,photo, min_confidence)
