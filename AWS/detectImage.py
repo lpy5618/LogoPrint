@@ -51,8 +51,8 @@ def display_image(bucket,photo,response):
     image.show()
 
 def show_custom_labels(model,bucket,photo, min_confidence):
-    # client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIATDU2AHYM6DIAV4WF',
-    #                     aws_secret_access_key='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')
+    # client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='',
+    #                     aws_secret_access_key='')
     client=boto3.client('rekognition')
 
     #Call DetectCustomLabels
@@ -69,7 +69,7 @@ def main():
 
     bucket='custom-labels-console-ap-southeast-2-866d8ab204'
     photo='clipImage/STW002_1.png'
-    model='arn:aws:rekognition:ap-southeast-2:686239894582:project/logoPrint/version/logoPrint.2023-06-15T17.29.07/1686814148965'
+    model=''
     min_confidence=50
 
     label_count=show_custom_labels(model,bucket,photo, min_confidence)
