@@ -2,8 +2,8 @@ import boto3
 
 def start_model(project_arn, model_arn, version_name, min_inference_units):
 
-    client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIAZ7RYVZQ3NNQFXGC5',
-                        aws_secret_access_key='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')
+    client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='',
+                        aws_secret_access_key='')
 
     try:
         # Start the model
@@ -25,8 +25,8 @@ def start_model(project_arn, model_arn, version_name, min_inference_units):
     print('Done...')
     
 def main():
-    project_arn='arn:aws:rekognition:ap-southeast-2:181647024244:project/logoPrint/1686716167375'
-    model_arn='arn:aws:rekognition:ap-southeast-2:181647024244:project/logoPrint/version/logoPrint.2023-06-14T16.31.18/1686724280558'
+    project_arn=''
+    model_arn=''
     min_inference_units=1 
     version_name='logoPrint.2023-06-14T16.31.18'
     start_model(project_arn, model_arn, version_name, min_inference_units)
