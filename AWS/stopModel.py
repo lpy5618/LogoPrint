@@ -7,8 +7,8 @@ import time
 
 def stop_model(model_arn):
 
-    client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='AKIATDU2AHYM6DIAV4WF',
-                        aws_secret_access_key='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')
+    client=boto3.client('rekognition',region_name='ap-southeast-2',aws_access_key_id='',
+                        aws_secret_access_key='')
 
     print('Stopping model:' + model_arn)
 
@@ -24,7 +24,7 @@ def stop_model(model_arn):
     
 def main():
     
-    model_arn='arn:aws:rekognition:ap-southeast-2:213997600281:project/logoPrint/version/logoPrint.2023-06-09T14.43.15/1686285796098'
+    model_arn=''
     stop_model(model_arn)
 
 if __name__ == "__main__":
